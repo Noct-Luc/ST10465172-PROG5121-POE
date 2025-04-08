@@ -1,37 +1,58 @@
 import java.util.Scanner;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
-public static class Login {
-    public static void login() {
-        String Username 
-        String Password 
-        Scanner scanner = new Scanner(System.in);
+public class LoginSystem {
 
-        //Enter username and password 
-        System.out.print("Enter username: ");
-        String Username = scanner.nextLine();
+    private static final String USERNAME_REGEX = "^[a-zA-Z][a-zA-Z0-9]*$";
 
-        System.out.print("Enter password: ");
-        String Password = scanner.nextLine();
 
-        // Credentials validation 
-        if (Username.equals(register.getUsername()) && Password.equals(register.getPassword())) {
-            System.out.println("Login successful!");
-        } else {
-            System.out.println("Invalid username or password. Please try again.");
-        }
-    }
-}
+    private static final String PASSWORD_REGEX = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[!@#$%^&*(),.?\":{}|<>])[A-Za-z\\d!@#$%^&*(),.?\":{}|<>]{8,}$";
 
-public class Main {
     public static void main(String[] args) {
-        // Create instances of Register and Login classes
-        Register register = new Register();
-        Login login = new Login();
+        Scanner scanner = new Scanner(System.in);
+        String firstName;
+        String lastUserName;
+        String username;
+        String password;
+        String cellNumber;
 
-        // Register the user
-        register.register();
+        // username entry
+        System.out.println("Enter your username");
+        username = scanner.nextLine();
+        if (username.contains("_") && username.length() <= 5) {
+            System.out.println("Username successfully captured");
+        } else {
+            System.out.println("Username is not correctly formatted, please ensure that your username contains an underscore and is no more than 5 characters in length");
+        }
 
-        // Try to log in with the registered details
-        login.login(register);
+        System.out.println("Enter your password");
+        password = scanner.nextLine();
+
+        // password verification
+        if (isValidPassword(password)) {
+
+            System.out.println("Password successfully captured");
+        } else {
+            System.out.println("Password is incorrect.");
+        }
+        System.out.println("Welcome");
+        scanner.close();
     }
-    
+
+    // Method to validate username using regex
+    private static boolean isValidUsername(String username) {
+        Pattern pattern = Pattern.compile(USERNAME_REGEX);
+        Matcher matcher = pattern.matcher(username);
+        return matcher.matches();
+    }
+
+    // Method to validate password using regex
+    private static boolean isValidPassword(String password) {
+        Pattern pattern = Pattern.compile(PASSWORD_REGEX);
+        Matcher matcher = pattern.matcher(password);
+        return matcher.matches();
+    }
+
+
+}

@@ -14,7 +14,7 @@ public class main {
         boolean cellphoneValid = false;
         String password = "";
         boolean passwordValid = false;
-        boolean loginSuccess = false;
+
 
         // Loops until user puts in the correct username
         while (!usernameValid) {
@@ -28,7 +28,7 @@ public class main {
                 usernameValid = true; // This is to exit the loop
             } else {
                 // Displays error message and tells the user to try again
-                System.out.println("Invalid username format. It must contain an underscore and less than 5 characters long. Please try again.");
+                System.out.println("Username is not correctly formated, please ensure it contains an underscore and is no than 5 characters in length.");
             }
         }
         // Storing username and password
@@ -36,7 +36,7 @@ public class main {
 
         // Loops until user uses a valid cellphone number
         while (!cellphoneValid) {
-            System.out.println("Enter your cellphone number (starting with country code, < 12 digits):");
+            System.out.println("Enter your cellphone number (starting with international country code):");
             // Prompt the user to enter their cellphone number using an input dialog
             cellphoneNumber = scanner.nextLine();
 
@@ -44,10 +44,10 @@ public class main {
             if (checkCellphoneNumber(cellphoneNumber)) {
                 // Display a success message if the cellphone number is valid
                 System.out.println("Cellphone number successfully added!");
-                cellphoneValid = true; // Set the flag to exit the cellphone number input loop
+                cellphoneValid = true; // This exit the cellphone number input loop
             } else {
                 // Display an error message and prompt the user to try again
-                System.out.println("Invalid cellphone number format. Please try again.");
+                System.out.println("Cellphone number incorrectly formatted or does not contain an international code");
             }
         }
         // Loop until a valid password is entered
@@ -64,7 +64,7 @@ public class main {
                 passwordValid = true; // Set the flag to exit the password input loop
             } else {
                 // Display an error message and prompt the user to try again
-                System.out.println("Password does not meet the complexity requirements. Please ensure that it is a least characters long, has an upper and lowercase letter and a specia; character. Please try again.");
+                System.out.println("Password is not formatted correctly, please ensure that it is least 8 characters, contains an upper and lowercase letter and a special character.");
             }
         }
 

@@ -20,11 +20,13 @@ public class LoginSystem {
         // username entry
         System.out.println("Enter your username");
         username = scanner.nextLine();
-        if (username.contains("_") && username.length() <= 5) {
+      while {
+          if (isValidUsername) {
             System.out.println("Username successfully captured");
         } else {
             System.out.println("Username is not correctly formatted, please ensure that your username contains an underscore and is no more than 5 characters in length");
         }
+      }
 
         System.out.println("Enter your password");
         password = scanner.nextLine();
@@ -41,18 +43,15 @@ public class LoginSystem {
     }
 
     // Method to validate username using regex
-    private static boolean isValidUsername(String username) {
-        Pattern pattern = Pattern.compile(USERNAME_REGEX);
-        Matcher matcher = pattern.matcher(username);
-        return matcher.matches();
+    public static boolean isValidUsername(String username) {
+        (username.contains("_") && username.length() <= 5)
+        return
     }
 
     // Method to validate password using regex
-    private static boolean isValidPassword(String password) {
+    public static boolean isValidPassword(String password) {
         Pattern pattern = Pattern.compile(PASSWORD_REGEX);
         Matcher matcher = pattern.matcher(password);
         return matcher.matches();
     }
-
-
 }

@@ -64,19 +64,20 @@ public class main {
    public static boolean checkUsername (String username) {
            // Count the number of underscore characters in the username
            long underscoreCount = username.chars().filter(ch -> ch == '_').count();
-           // Return true if there is exactly one underscore and the length is not more than 5
+           // Return true if conditions are met 
            return underscoreCount == 1 && username.length() <= 5;
    }
 
     //Regex pattern is inspired by ChatGPT (OpenAI,2024)
+    //Cellphone validation 
     public static boolean checkCellphoneNumber(String cellphoneNumber) {
-        // Check if the string is not null or empty, matches the pattern of digits and/or '+', and has at least 8 characters
+        
         return cellphoneNumber != null && cellphoneNumber.matches("^[0-9+]+$") && cellphoneNumber.length() < 12;
     }
 
-
+//password validation
     public static boolean checkPasswordComplexity(String password) {
-        // Checks if password has nothing input or the length less than 8
+    
         if (password == null || password.length() < 8) {
             return false;
         }
@@ -85,7 +86,6 @@ public class main {
         boolean hasDigit = false;
         boolean hasSpecial = false;
 
-        // Iterate through each character of the password
         for (char c : password.toCharArray()) {
             if (Character.isDigit(c)) {
                 hasDigit = true;
@@ -94,7 +94,6 @@ public class main {
             } else if (Character.isLowerCase(c)) {
                 hasLower = true;
             } else {
-                // Use a regular expression to check for special characters (anything not alphanumeric)
                 Pattern specialPattern = Pattern.compile("[^a-zA-Z0-9]");
                 Matcher specialMatcher = specialPattern.matcher(String.valueOf(c));
                 if (specialMatcher.find()) {
@@ -102,7 +101,7 @@ public class main {
                 }
             }
         }
-        // Return true only if all the required character types are present
+        // Return true if all the conditions are met
         return hasUpper && hasLower && hasDigit && hasSpecial;
 
     }

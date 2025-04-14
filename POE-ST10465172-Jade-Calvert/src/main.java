@@ -68,7 +68,7 @@ public class main {
            return underscoreCount == 1 && username.length() <= 5;
    }
 
-    //Regex pattern was inspired by ChatGPT (OpenAI,2024)
+    //Regex pattern was inspired by ChatGPT.2025. loginFeature. 
     //Cellphone validation 
     public static boolean checkCellphoneNumber(String cellphoneNumber) {
         

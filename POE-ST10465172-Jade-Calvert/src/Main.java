@@ -4,7 +4,6 @@ import java.util.regex.Pattern;
 
 public class main {
     public static void main(String[] args) {
-        Registration registration = new Registration();
         Scanner scanner = new Scanner(System.in);
         String firstName;
         String lastName;
@@ -15,17 +14,14 @@ public class main {
         // personal information
         System.out.println("Enter your first name");
         firstName = scanner.nextLine();
-        registration.setFirstName(firstName);
 
         System.out.println("Enter your last name");
         lastName = scanner.nextLine();
-        registration.setLastName(lastName);
 
         //cellphone number
         System.out.println("Enter your cellphone number");
         cellNumber = scanner.nextLine();
-        registration.setCellNumber(cellNumber);
-
+        
         if (!isValidCellphoneNumber(cellNumber))
             System.out.println("Cell phone number incorrectly formatted or does not contain international code.");
         else {
@@ -33,10 +29,12 @@ public class main {
         }
 
         //username entry
+        while{
         System.out.println("Enter your username");
         username = scanner.nextLine();
-        registration.setUsername(username);
 
+//usernmae validation
+        
         if (username.contains("_") && username.length() <= 5) {
             System.out.println("Username successfully captured");
         } else {
@@ -46,7 +44,6 @@ public class main {
         // passwords
         System.out.println("Enter your password");
         password = scanner.nextLine();
-        registration.setPassword(password);
 
         // password verification
         if (checkPassword(password) && hasSpecialCharacter(password)) {
@@ -56,56 +53,9 @@ public class main {
         } else {
             System.out.println("Password does not meet the requirements. It should be at least 8 characters long and contain at least one uppercase letter, one lowercase letter, a digit and a special character.");
         }
-        printRegistrationData(registration);
+        }
         scanner.close();
 
-    }
-
-    private static void printRegistrationData(Registration registration) {
-        System.out.println(registration.getFirstName());
-        System.out.println(registration.getLastName());
-        System.out.println(registration.getCellNumber());
-        System.out.println(registration.getUsername());
-        System.out.println(registration.getPassword());
-    }
-
-   static class Registration {
-        private String firstName;
-        private String lastName;
-        private String username;
-        private String password;
-        private String cellNumber;
-
-        public String getFirstName() {
-            return firstName;
-        }
-        public void setFirstName(String firstName) {
-            this.firstName = firstName;
-        }
-        public String getLastName() {
-            return lastName;
-        }
-        public void setLastName(String lastName) {
-            this.lastName = lastName;
-        }
-        public String getCellNumber() {
-            return cellNumber;
-        }
-        public void setCellNumber(String cellNumber) {
-            this.cellNumber = cellNumber;
-        }
-        public String getUsername() {
-            return username;
-        }
-        public void setUsername(String username) {
-            this.username = username;
-        }
-        public String getPassword() {
-            return password;
-        }
-        public void setPassword(String password) {
-            this.password = password;
-        }
     }
 
 //cellphone validation

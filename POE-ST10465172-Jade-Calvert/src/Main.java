@@ -28,7 +28,7 @@ public class main {
                 usernameValid = true; // This is to exit the loop
             } else {
                 // Displays error message and tells the user to try again
-                System.out.println("Invalid username format. Please try again.");
+                System.out.println("Invalid username format. It must contain an underscore and less than 5 characters long. Please try again.");
             }
         }
         // Storing username and password
@@ -64,35 +64,10 @@ public class main {
                 passwordValid = true; // Set the flag to exit the password input loop
             } else {
                 // Display an error message and prompt the user to try again
-                System.out.println("Password does not meet the complexity requirements. Please try again.");
+                System.out.println("Password does not meet the complexity requirements. Please ensure that it is a least characters long, has an upper and lowercase letter and a specia; character. Please try again.");
             }
         }
 
-        // LOGIN LOOP
-
-        while (!loginSuccess) {
-            System.out.print("Please enter your username: ");
-            username = scanner.next();
-            System.out.print("Please enter your password: ");
-            password = scanner.next();
-
-            boolean validUserName = LoginSystem.isValidUserName (username);
-            boolean validPassword = LoginSystem.isValidPassword(password);
-
-            if (!validUserName || !validPassword) {
-                System.out.println("Login failed due to incorrect username or password format.");
-                continue;
-            }
-
-            if (users.containsKey(username) && users.get(username).equals(password)) {
-                System.out.println("Login successful!");
-                System.out.println("Welcome back, " + username+ " " + "! It's good to have you back.");
-                loginSuccess = true;
-            } else {
-                System.out.println("Login failed! Incorrect username or password.");
-            }
-
-        }
     }
 //username validation
    public static boolean checkUsername (String username) {
@@ -139,15 +114,5 @@ public class main {
         // Return true only if all the required character types are present
         return hasUpper && hasLower && hasDigit && hasSpecial;
 
-    }
-}
-// Login validation system
-class LoginSystem {
-    public static boolean isValidUserName(String username) {
-        return main.checkUsername(username);
-    }
-
-    public static boolean isValidPassword(String password) {
-        return main.isPasswordValid (password);
     }
 }

@@ -23,11 +23,9 @@ public class main {
 
             // Validate the username
             if (checkUsername(username)) {
-                // Displays success message if the username is valid
                 System.out.println("Username successfully captured!");
-                usernameValid = true; // This is to exit the loop
+                usernameValid = true;  
             } else {
-                // Displays error message and tells the user to try again
                 System.out.println("Username is not correctly formated, please ensure it contains an underscore and is no than 5 characters in length.");
             }
         }
@@ -37,33 +35,26 @@ public class main {
         // Loops until user uses a valid cellphone number
         while (!cellphoneValid) {
             System.out.println("Enter your cellphone number (starting with international country code):");
-            // Prompt the user to enter their cellphone number using an input dialog
             cellphoneNumber = scanner.nextLine();
 
-            // Validate the entered cellphone number
+            // Validate cellphone number
             if (checkCellphoneNumber(cellphoneNumber)) {
-                // Display a success message if the cellphone number is valid
                 System.out.println("Cellphone number successfully added!");
-                cellphoneValid = true; // This exit the cellphone number input loop
+                cellphoneValid = true; 
             } else {
-                // Display an error message and prompt the user to try again
                 System.out.println("Cellphone number incorrectly formatted or does not contain an international code");
             }
         }
         // Loop until a valid password is entered
         while (!passwordValid) {
-            // Prompt the user to enter their password using an input dialog
-            password = scanner.nextLine();
+              password = scanner.nextLine();
             System.out.println("Enter your password (>= 8 chars, upper, lower, digit, special):");
             // Validate the entered password
             if (checkPasswordComplexity(password)) {
-                // Display a success message if the password is valid
                 System.out.println("Password successfully captured!");
-                // In a real application, you would hash the password here for security.
-                System.out.println("All data validated successfully");
-                passwordValid = true; // Set the flag to exit the password input loop
+                System.out.println("All data captured successfully");
+                passwordValid = true; 
             } else {
-                // Display an error message and prompt the user to try again
                 System.out.println("Password is not formatted correctly, please ensure that it is least 8 characters, contains an upper and lowercase letter and a special character.");
             }
         }
